@@ -1,6 +1,6 @@
 package sitemap
 
-import "bytes"
+import "strings"
 
 // Sitemap represents a single sitemap.
 type Sitemap struct {
@@ -21,7 +21,7 @@ func (sitemap *Sitemap) Add(url string) {
 
 // Text creates a list of your URLs in text format.
 func (sitemap *Sitemap) Text() string {
-	var buffer bytes.Buffer
+	buffer := strings.Builder{}
 
 	for _, site := range sitemap.sites {
 		buffer.WriteString(site.URL)
